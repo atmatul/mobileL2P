@@ -1,9 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Media Library";
+﻿@using L2PAPIClient;
+@{
+    ViewData["Title"] = "Announcements";
 }
-
-
-
 
 <div class="mdl-cell mdl-cell--12-col">
     <div align="right">
@@ -26,8 +24,7 @@
     <h3>@ViewData["Title"]</h3>
 
     <hr />
-
-    <table align="center">
+    @*<table align="center">
 
         <tr>
             <td>
@@ -37,46 +34,67 @@
             </td>
             <td>
                 <button class="mdl-button mdl-js-button mdl-button--fab">
-                    <i class="material-icons">file_download</i>
+                    <i class="material-icons">edit</i>
                 </button>
-            </td>
+            </td> 
             <!-- <td>
                   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-shadow--4dp">
                       <i class="material-icons">add</i>
                   </button>
               </td>-->
         </tr>
-    </table>
+    </table>*@
 
 
 </div>
+
 <div class="mdl-cell mdl-cell--12-col">
-    <table align="center" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+    <h2>Subject</h2>
+    <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Text...</label>
+        </div>
+    </form>
+    <h3>Body</h3>
+    <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Text...</label>
+        </div>
+    </form>
+   @* <table align="center" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
         <thead>
             <tr>
-                <th class="mdl-data-table__cell--non-numeric">File</th>
+                <th class="mdl-data-table__cell--non-numeric">Announcements</th>
             </tr>
         </thead>
         <tbody>
+            @* @foreach(L2PAPIClient.DataModel.L2PAnnouncementElement announcement in L2PAPIClient.api.Calls.L2PviewAllAnnouncements("16ss - 03279").Result.dataSet)
+                {
+                    <tr>
+                        <td class="mdl-data-table__cell--numeric">announcement</td>
+                    </tr>
+                }
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">Video 1</td>
+                <td class="mdl-data-table__cell--non-numeric">Link 1</td>
             </tr>
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">Video 2</td>
+                <td class="mdl-data-table__cell--non-numeric">Link 2</td>
             </tr>
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">Video 3</td>
+                <td class="mdl-data-table__cell--non-numeric">Link 3</td>
             </tr>
         </tbody>
-    </table>
+    </table>*@
 
 </div>
 
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
         <div id="bottom-right">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent">
-                <i class="material-icons">add</i>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                Submit
             </button>
         </div>
     </div>
