@@ -2,9 +2,6 @@
     ViewData["Title"] = "Hyperlinks";
 }
 
-
-
-
 <div class="mdl-cell mdl-cell--12-col">
     <div align="right">
         <button id="demo-menu-lower-right"
@@ -29,9 +26,12 @@
     <table align="center">
         <tr>
             <td>
-                <button class="mdl-button mdl-js-button mdl-button--fab">
-                    <i class="material-icons">delete</i>
-                </button>
+                <a asp-controller="MyCourse" asp-action="LearningMaterials" class="mdl-navigation__link">
+                    <button class="mdl-button mdl-js-button mdl-button--fab">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </a>
+                
             </td>
             <td>
                 <button class="mdl-button mdl-js-button mdl-button--fab">

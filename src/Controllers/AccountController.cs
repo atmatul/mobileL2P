@@ -11,6 +11,7 @@ using Microsoft.Data.Entity;
 using System.Diagnostics;
 using System.Threading;
 using System;
+using Grp.L2PSite.MobileApp.Controllers;
 
 namespace Cik.MazSite.WebApp.Controllers
 {
@@ -89,6 +90,7 @@ namespace Cik.MazSite.WebApp.Controllers
                     else
                     {
                         Console.WriteLine("App authenticated!");
+                        AppVariables.loggedIn = true;
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -104,8 +106,9 @@ namespace Cik.MazSite.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult LogOff()
         {
-            //_signInManager.SignOut();
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            AppVariables.loggedIn = false;
+            return null;
+            //return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
         //
