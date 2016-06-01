@@ -22,7 +22,11 @@ namespace Cik.MazSite.WebApp.Controllers
 
             return View();
         }
-
+        public IActionResult Announcement()
+        {
+            ViewData["Message"] = "Announcement Page";
+            return View();
+        }
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");
