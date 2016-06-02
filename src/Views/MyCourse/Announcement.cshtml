@@ -1,65 +1,69 @@
 ﻿@using L2PAPIClient.DataModel;
 @using L2PAPIClient;
-        @{
+@{
             ViewData["Title"] = "Announcement";
-            //string courseId = ViewData["CourseId"].ToString();
-            string courseId = "15ws-01262";
-        List<L2PAnnouncementElement> announcementlist = L2PAPIClient.api.Calls.L2PviewAllAnnouncements(courseId).Result.dataSet;
-        L2PCourseInfoData course = L2PAPIClient.api.Calls.L2PviewCourseInfoAsync(courseId).Result;
-    }
+            string courseId = ViewData["CourseId"].ToString();
+            List<L2PAnnouncementElement> announcementlist = L2PAPIClient.api.Calls.L2PviewAllAnnouncements(courseId).Result.dataSet;
+            L2PCourseInfoData course = L2PAPIClient.api.Calls.L2PviewCourseInfoAsync(courseId).Result;
+}
 
-    <div class="mdl-cell mdl-cell--12-col">
-        <div align="right">
-            <button id="demo-menu-lower-right"
-                    class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">more_vert</i>
-            </button>
-        </div>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="LearningMaterials" class="mdl-navigation__link">Learning Materials</a></li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="SharedDocuments" class="mdl-navigation__link">Shared Documents</a></li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Hyperlinks" class="mdl-navigation__link">Hyperlinks</a></li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Assignments" class="mdl-navigation__link">Assignments</a></li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Announcement" class="mdl-navigation__link">Announcements</a></li>
-            <li class="mdl-menu__item">Emails</li>
-            <li class="mdl-menu__item">Discussion Forum</li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="MediaLibrary" class="mdl-navigation__link">Media Library</a></li>
-            <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Literature" class="mdl-navigation__link">Literarture</a></li>
-        </ul>
+<div class="mdl-cell mdl-cell--12-col">
+    <div align="right">
+        <button id="demo-menu-lower-right"
+                class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+        </button>
     </div>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="LearningMaterials" class="mdl-navigation__link">Learning Materials</a></li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="SharedDocuments" class="mdl-navigation__link">Shared Documents</a></li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Hyperlinks" class="mdl-navigation__link">Hyperlinks</a></li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Assignments" class="mdl-navigation__link">Assignments</a></li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Announcement" class="mdl-navigation__link">Announcements</a></li>
+        <li class="mdl-menu__item">Emails</li>
+        <li class="mdl-menu__item">Discussion Forum</li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="MediaLibrary" class="mdl-navigation__link">Media Library</a></li>
+        <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Literature" class="mdl-navigation__link">Literarture</a></li>
+    </ul>
+</div>
 <h2>Announcements</h2> <br />
 <h4>@course.courseTitle</h4>
-    <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--12-col">
-            <table class="mdl-data-table mdl-js-data-table">
-                <thead>
-                    <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Title</th>
-                        <th class="mdl-data-table__cell--non-numeric">Body</th>
-                        <th class="mdl-data-table__cell--non-numeric">Created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   @foreach(L2PAnnouncementElement annoucement in announcementlist)
-                   {
-                       <tr>
-                           <td class="mdl-data-table__cell--non-numeric" width="30px">@annoucement.title</td>
-                           <td class="mdl-data-table__cell--non-numeric" width="30px>@annoucement.body.Trim()</td>
-                           <td class="mdl-data-table__cell--non-numeric" width="30px>@annoucement.created</td>
-                       </tr>
-                   }
-                </tbody>
-            </table>
-        </div>
-    </div>
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
-        <div id="bottom-right">
-            <a asp-controller="MyCourse" asp-action="AddAnnouncement" class="mdl-navigation__link" asp-route-id="@course.uniqueid">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent">
-                    <i class="material-icons">Add</i>
-                </button>
-            </a>
+        <table class="mdl-data-table mdl-js-data-table">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Title</th>
+                    <th class="mdl-data-table__cell--non-numeric">Body</th>
+                    <th class="mdl-data-table__cell--non-numeric">Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (L2PAnnouncementElement annoucement in announcementlist)
+                    {
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric" width="30px">@annoucement.title</td>
+                            <td class="mdl-data-table__cell--non-numeric" width="30px">@Html.Raw(@annoucement.body.Trim())</td>
+                            <td class="mdl-data-table__cell--non-numeric" width="30px">@annoucement.created</td>
+                        </tr>
+
+
+                    }
+                
+                 }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-</div>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div id="bottom-right">
+                    <a asp-controller="MyCourse" asp-action="AddAnnouncement" class="mdl-navigation__link" asp-route-id="@course.uniqueid">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent">
+                            <i class="material-icons">Add</i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>

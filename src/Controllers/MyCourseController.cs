@@ -5,7 +5,7 @@ namespace Grp.L2PSite.MobileApp.Controllers
 {
     public class MyCourseController : Controller
     {
-        public string selectedcourse_id;
+        public static string selectedcourse_id;
 
         public IActionResult Index()
         {
