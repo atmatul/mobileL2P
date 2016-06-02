@@ -27,14 +27,14 @@
         <li class="mdl-menu__item"><a asp-controller="MyCourse" asp-action="Literature" class="mdl-navigation__link">Literarture</a></li>
     </ul>
 </div>
-<h2>Announcements</h2>
+<h2>Add Announcements</h2> <br />
 <h4>@course.courseTitle</h4>
 
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">
         <table class="mdl-data-table mdl-js-data-table">
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">Title</td>
+                <td class="mdl-data-table__cell--non-numeric"><h5 style="color:blue">Title</h5></td>
             </tr>
             <tr>
                 <td class="mdl-data-table__cell--non-numeric">
@@ -47,7 +47,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">Body</td>
+                <td class="mdl-data-table__cell--non-numeric"><h5 style="color:blue">Subject</td>
             </tr>
             <tr>
                 <td class="mdl-data-table__cell--non-numeric">
@@ -62,11 +62,24 @@
         </table>
     </div>
 </div>
-<div class="mdl-cell mdl-cell--12-col">
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">
+        <button type="submit"
+                class="mdl-button mdl-js-button
+                                    mdl-button--raised mdl-button--colored
+                                    mdl-js-ripple-effect">
+            Submit
+        </button>
+    </div>
+    
+</div>
+@*<div class="mdl-cell mdl-cell--1-col">
     <button type="submit"
             class="mdl-button mdl-js-button
                                     mdl-button--raised mdl-button--colored
-                                    mdl-js-ripple-effect">
+                                    mdl-js-ripple-effect" >
        Submit
     </button>
 </div>
+*@

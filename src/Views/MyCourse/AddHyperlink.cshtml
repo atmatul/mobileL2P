@@ -3,7 +3,8 @@
 @{
 
     ViewData["Title"] = "AddHyperlink";
-    string courseId = ViewData["CourseId"].ToString();
+    //string courseId = ViewData["CourseId"].ToString();
+    string courseId = "15ws-01262";
     L2PCourseInfoData course = L2PAPIClient.api.Calls.L2PviewCourseInfoAsync(courseId).Result;
     L2PHyperlinkElement hyperlink = new L2PHyperlinkElement();
 }
